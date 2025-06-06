@@ -1,0 +1,38 @@
+{
+  "name": "webpack-boilerplate",
+  "version": "1.0.0",
+  "description": "Webpack boilerplate with SCSS and JavaScript",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "lint": "npx eslint ./src/js/",
+    "check": "node -v && npm -v && webpack -v",
+    "validate": "node ./html-validator.js",
+    "babel": "npx babel ./src/js/ --out-dir ./src/babel/",
+    "start": "npx webpack serve"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.3",
+    "@eslint/js": "^9.28.0",
+    "autoprefixer": "^10.4.17",
+    "babel-loader": "^9.1.2",
+    "copy-webpack-plugin": "^13.0.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^9.28.0",
+    "globals": "^16.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss-loader": "^7.2.0",
+    "sass": "^1.70.0",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^3.3.3",
+    "typescript-eslint": "^8.33.1",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "html-validator": "^6.0.1",
+    "reset-css": "^5.0.2"
+  }
+}
