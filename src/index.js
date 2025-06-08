@@ -1,6 +1,6 @@
 "use strict";
 
-import "./js/script.js";
+import "./babel/script.js";
 
 import "./scss/reset.scss";
 import "./sass/styles.sass";

@@ -1,21 +1,17 @@
 "use strict";
-
-const form = document.getElementById('form') as HTMLFormElement;
-const launchBtn = document.getElementById("submit") as HTMLButtonElement;
-const goToFormButton = document.getElementById("scrollBtn") as HTMLButtonElement;
-const userEmailField = document.getElementById("email") as HTMLInputElement;
-const userNameField = document.getElementById("name") as HTMLInputElement;
-
+var form = document.getElementById('form');
+var launchBtn = document.getElementById("submit");
+var goToFormButton = document.getElementById("scrollBtn");
+var userEmailField = document.getElementById("email");
+var userNameField = document.getElementById("name");
 if (!form || !launchBtn || !goToFormButton || !userEmailField || !userNameField) {
     console.error("Element is disabled on the page!");
 }
-
-goToFormButton.addEventListener('click', (event: Event): void => {
+goToFormButton.addEventListener('click', function (event) {
     event.preventDefault();
     form.scrollIntoView({ behavior: 'smooth' });
 });
-
-launchBtn.addEventListener('click', (): void => {
+launchBtn.addEventListener('click', function () {
     if (!userNameField.value) {
         if (!userEmailField.value) {
             userEmailField.placeholder = "Ви маєте ввести свою електронну пошту!";
@@ -27,20 +23,15 @@ launchBtn.addEventListener('click', (): void => {
         userEmailField.placeholder = "Ви маєте ввести свою електронну пошту!";
         return;
     }
-
     console.log("User email:", userEmailField.value, "User name:", userNameField.value);
-
     launchBtn.disabled = true;
     launchBtn.style.opacity = '0.7';
-
     userEmailField.value = "";
     userNameField.value = "";
-
-    const goose = document.createElement('div') as HTMLDivElement;
+    var goose = document.createElement('div');
     goose.classList.add('gus-anim');
     form.appendChild(goose);
-
-    setTimeout((): void => {
+    setTimeout(function () {
         goose.remove();
     }, 4000);
 });
