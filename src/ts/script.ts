@@ -15,19 +15,21 @@ goToFormButton.addEventListener('click', (event: Event): void => {
     form.scrollIntoView({ behavior: 'smooth' });
 });
 
-launchBtn.addEventListener('click', (): void => {
+launchBtn.addEventListener('click', () => {
     if (!userNameField.value) {
         if (!userEmailField.value) {
             userEmailField.placeholder = "Ви маєте ввести свою електронну пошту!";
-            return;
         }
         userNameField.placeholder = "Ви маєте ввести своє ім'я!";
         return;
-    } else if (!userEmailField.value) {
+    }
+    else if (!userEmailField.value) {
+        if (!userNameField.value) {
+            userNameField.placeholder = "Ви маєте ввести своє ім'я!";
+        }
         userEmailField.placeholder = "Ви маєте ввести свою електронну пошту!";
         return;
     }
-
     console.log("User email:", userEmailField.value, "User name:", userNameField.value);
 
     launchBtn.disabled = true;
@@ -36,11 +38,14 @@ launchBtn.addEventListener('click', (): void => {
     userEmailField.value = "";
     userNameField.value = "";
 
-    const goose = document.createElement('div') as HTMLDivElement;
+    userEmailField.placeholder = "";
+    userNameField.placeholder = "";
+
+    const goose = document.createElement('div');
     goose.classList.add('gus-anim');
     form.appendChild(goose);
 
-    setTimeout((): void => {
+    setTimeout(() => {
         goose.remove();
     }, 4000);
 });

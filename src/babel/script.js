@@ -15,11 +15,13 @@ launchBtn.addEventListener('click', function () {
     if (!userNameField.value) {
         if (!userEmailField.value) {
             userEmailField.placeholder = "Ви маєте ввести свою електронну пошту!";
-            return;
         }
         userNameField.placeholder = "Ви маєте ввести своє ім'я!";
         return;
     } else if (!userEmailField.value) {
+        if (!userNameField.value) {
+            userNameField.placeholder = "Ви маєте ввести своє ім'я!";
+        }
         userEmailField.placeholder = "Ви маєте ввести свою електронну пошту!";
         return;
     }
@@ -28,6 +30,8 @@ launchBtn.addEventListener('click', function () {
     launchBtn.style.opacity = '0.7';
     userEmailField.value = "";
     userNameField.value = "";
+    userEmailField.placeholder = "";
+    userNameField.placeholder = "";
     var goose = document.createElement('div');
     goose.classList.add('gus-anim');
     form.appendChild(goose);
